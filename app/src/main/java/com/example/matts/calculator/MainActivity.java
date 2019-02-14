@@ -21,59 +21,83 @@ public class MainActivity extends AppCompatActivity {
 
     public void btnZeroClicked(View v){
         sb.append("0");
+        sb.append(" ");
         t.setText(sb);
     }
     public void btnOneClicked(View v){
         sb.append("1");
+        sb.append(" ");
         t.setText(sb);
     }
     public void btnTwoClicked(View v){
         sb.append("2");
+        sb.append(" ");
         t.setText(sb);
     }
     public void btnThreeClicked(View v){
         sb.append("3");
+        sb.append(" ");
         t.setText(sb);
     }
     public void btnFourClicked(View v){
         sb.append("4");
+        sb.append(" ");
         t.setText(sb);
     }
     public void btnFiveClicked(View v){
         sb.append("5");
+        sb.append(" ");
         t.setText(sb);
     }
     public void btnSixClicked(View v){
         sb.append("6");
+        sb.append(" ");
         t.setText(sb);
     }
     public void btnSevenClicked(View v){
         sb.append("7");
+        sb.append(" ");
         t.setText(sb);
     }
     public void btnEightClicked(View v){
         sb.append("8");
+        sb.append(" ");
         t.setText(sb);
     }
     public void btnNineClicked(View v){
         sb.append("9");
+        sb.append(" ");
         t.setText(sb);
     }
 
     public void btnClearClicked(View v){
         t.setText("");
+        sb.delete(0, sb.length());
     }
 
     public void btnPlusClicked(View v){
         sb.append("+");
+        sb.append(" ");
         t.setText(sb);
     }
     public void btnMinusClicked(View v){
         sb.append("-");
+        sb.append(" ");
         t.setText(sb);
     }
     public void btnDivideClicked(View v){
-        sb.append("/");
+        sb.append(getString(R.string.divide));
+        sb.append(" ");
+        t.setText(sb);
+    }
+    public void btnMultiplyClicked(View v){
+        sb.append(getString(R.string.multiply));
+        sb.append(" ");
+        t.setText(sb);
+    }
+    public void btnPercentClicked(View v){
+        sb.append("%");
+        sb.append(" ");
         t.setText(sb);
     }
 
@@ -82,7 +106,29 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+    public void btnEqualClicked(View v){
+        String answer="";
+        int a;
+        String e = t.getText().toString();
+        String[] eq = e.split(" ");
 
+        int num1 = Integer.valueOf(eq[0]);
+        String op = eq[1];
+        int num2 = Integer.valueOf(eq[2]);
+
+        if(op.equals(getString(R.string.multiply))){
+            a = num1*num2;
+            answer = String.valueOf(a);
+        }
+        else if(op.equals(getString(R.string.divide))){
+            a = num1/num2;
+            answer = String.valueOf(a);
+        }
+
+
+        t.setText(answer);
+
+    }
 
 
 
@@ -95,10 +141,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -108,7 +154,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         t = findViewById(R.id.editText);
-        sb = new StringBuilder("");
+        sb = new StringBuilder();
 
     }
 

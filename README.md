@@ -1,6 +1,6 @@
 # CalculatorAndroidApp
 
-This is a simple android calculator capapble of the 4 basic functions as well as percent and square root.
+This is a simple android calculator capable of the 4 basic functions as well as percent and square root.
 
 # What I learned
 

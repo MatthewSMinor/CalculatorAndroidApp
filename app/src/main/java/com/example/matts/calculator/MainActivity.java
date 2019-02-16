@@ -45,7 +45,6 @@ public class MainActivity extends AppCompatActivity {
     }
     public void btnSixClicked(View v){
         sb.append("6");
-        sb.append(" ");
         t.setText(sb);
     }
     public void btnSevenClicked(View v){
@@ -100,6 +99,12 @@ public class MainActivity extends AppCompatActivity {
         sb.append(".");
         t.setText(sb);
     }
+    public void btnSqrtClicked(View v){
+        sb.append(getString(R.string.sqrt));
+        sb.append(" ");
+
+        t.setText(sb);
+    }
 
 
 
@@ -112,29 +117,55 @@ public class MainActivity extends AppCompatActivity {
         String e = t.getText().toString();
         String[] eq = e.split(" ");
 
-        Double num1 = Double.valueOf(eq[0]);
-        String op = eq[1];
-        Double num2 = Double.valueOf(eq[2]);
 
-        if(op.equals(getString(R.string.multiply))){
-            a = num1*num2;
-            answer = String.valueOf(a);
+        if(eq.length==3){
+            Double num1 = Double.valueOf(eq[0]);
+            String op = eq[1];
+            Double num2 = Double.valueOf(eq[2]);
+
+            if(op.equals(getString(R.string.multiply))){
+                a = num1*num2;
+                answer = String.valueOf(a);
+            }
+            else if(op.equals(getString(R.string.divide))){
+                a = num1/num2;
+                answer = String.valueOf(a);
+            }
+            else if(op.equals(getString(R.string.plus))){
+                a = num1+num2;
+                answer = String.valueOf(a);
+            }
+            else if(op.equals(getString(R.string.subtract))){
+                a = num1-num2;
+                answer = String.valueOf(a);
+            }
+
+
+            t.setText(answer);
+            sb.delete(0, sb.length());
+            sb.append(answer);
         }
-        else if(op.equals(getString(R.string.divide))){
-            a = num1/num2;
-            answer = String.valueOf(a);
+
+        else if(eq.length==2){
+            String op = eq[0];
+            Double num1 = Double.valueOf(eq[1]);
+
+            if(op.equals(getString(R.string.sqrt))){
+                a = Math.sqrt(num1);
+                answer = String.valueOf(a);
+            }
+
+            t.setText(answer);
+
+            sb.delete(0, sb.length());
+            sb.append(answer);
         }
-        else if(op.equals(getString(R.string.plus))){
-            a = num1+num2;
-            answer = String.valueOf(a);
-        }
-        else if(op.equals(getString(R.string.subtract))){
-            a = num1-num2;
-            answer = String.valueOf(a);
+
+        else{
+            t.setText("I am not that advanced");
         }
 
 
-        t.setText(answer);
 
     }
 

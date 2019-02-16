@@ -4,8 +4,9 @@ This is a simple android calculator capable of the 4 basic functions as well as 
 
 # What I learned
 
-* Worked more with constraint layout settings
-* Worked with using grid lines and auto-align features
+* Worked more with constraint layout settings.
+* Worked with using grid lines and auto-align features.
+* This was the first project where I worked heavily with UI and design features.
 
 # Rewarding Outcome
 

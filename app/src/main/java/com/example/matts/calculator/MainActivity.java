@@ -12,12 +12,8 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-
     private TextView t;
     private StringBuilder sb;
-
-
-
 
     public void btnZeroClicked(View v){
         sb.append("0");
@@ -108,9 +104,6 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
-
-
     public void btnEqualClicked(View v){
         String answer="";
         Double a;
@@ -168,11 +161,6 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-
-
-
-
-
 
 
 

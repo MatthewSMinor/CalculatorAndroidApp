@@ -86,7 +86,6 @@ public class MainActivity extends AppCompatActivity {
         t.setText(sb);
     }
     public void btnPercentClicked(View v){
-        sb.append(" ");
         sb.append("%");
         sb.append(" ");
         t.setText(sb);
@@ -145,6 +144,10 @@ public class MainActivity extends AppCompatActivity {
 
             if(op.equals(getString(R.string.sqrt))){
                 a = Math.sqrt(num1);
+                answer = String.valueOf(a);
+            }
+            else if(op.equals(getString(R.string.percent))){
+                a = num1/100;
                 answer = String.valueOf(a);
             }
 
